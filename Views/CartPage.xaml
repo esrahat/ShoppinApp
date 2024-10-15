@@ -1,0 +1,112 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopNow.Views.CartPage"
+             Title="Shopping Cart">
+
+    <!-- Wrapping the content inside a ScrollView -->
+    <ScrollView>
+        <StackLayout Padding="10"
+                Spacing="20">
+            <!-- CollectionView to display cart items -->
+            <CollectionView x:Name="CartCollectionView"
+                    ItemsSource="{Binding CartItems}"
+                    SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="LightGray"
+                                CornerRadius="10"
+                                Padding="10"
+                                Margin="5">
+                            <StackLayout Orientation="Horizontal"
+                                    VerticalOptions="CenterAndExpand">
+                                <!-- Item Name -->
+                                <Label Text="{Binding Name}"
+                                       FontSize="Medium"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="StartAndExpand"/>
+
+                                <!-- Decrease Button -->
+                                <Button Text="-"
+                                        Clicked="OnDecreaseClicked"
+                                        WidthRequest="40"
+                                        BackgroundColor="LightGray"
+                                        TextColor="Black"
+                                        VerticalOptions="Center"
+                                        IsEnabled="True"/>
+
+                                <!-- Quantity -->
+                                <Label Text="{Binding Quantity}"
+                                       FontSize="Medium"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       Padding="10,0"/>
+
+                                <!-- Increase Button -->
+                                <Button Text="+"
+                                        Clicked="OnIncreaseClicked"
+                                        WidthRequest="40"
+                                        BackgroundColor="LightGray"
+                                        TextColor="Black"
+                                        VerticalOptions="Center"
+                                        IsEnabled="{Binding Amount, Converter={StaticResource ZeroToFalseConverter}}"/>
+
+                                <!-- Item Price -->
+                                <Label Text="{Binding Price, StringFormat='${0:F2}'}"
+                                       FontSize="Medium"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="End"
+                                       Padding="10,0"/>
+
+
+
+                                <!-- Delete Button -->
+                                <Button Text="Delete"
+                                        Clicked="OnDeleteClicked"
+                                        BackgroundColor="Red"
+                                        TextColor="White"
+                                        WidthRequest="80"
+                                        VerticalOptions="Center"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+
+
+            <!-- Purchase Button at the Bottom -->
+            <Label  x:Name="TotalPriceLabel"
+                    Text="{Binding TotalPrice, StringFormat='Total Price: {0:C}'}"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Margin="0,20,0,50"
+                    IsVisible="{Binding IsTotalPriceVisible}"/>
+
+            <!-- Loading Indicator (Initially hidden) -->
+            <ActivityIndicator x:Name="ActivityIndicator"
+                               IsRunning="{Binding IsLoading}"
+                               IsVisible="{Binding IsLoading}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="EndAndExpand"
+                               Color="Gray"
+                               WidthRequest="100"
+                               HeightRequest="100"/>
+            <Button  x:Name="PurchaseButton"
+                     Text="Proceed to Purchase"
+                     Command="{Binding PurchaseCommand}"
+                     BackgroundColor="Green"
+                     TextColor="White"
+                     FontSize="Medium"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="15"
+                     Margin="0,20,0,0"
+                     VerticalOptions="EndAndExpand"
+                     IsEnabled="{Binding IsPurchaseButtonEnabled}"/>
+
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>

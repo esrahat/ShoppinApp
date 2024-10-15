@@ -1,0 +1,90 @@
+<ShopNow:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:ShopNow="clr-namespace:ShopNow.Views"
+                  xmlns:local="clr-namespace:ShopNow"
+                  xmlns:viewmodels="clr-namespace:ShopNow.ViewModels"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="ShopNow.Views.ItemDetailsPage"
+                  Title="Item Details">
+
+
+    <Grid>
+        <!-- Define row proportions: 1/3rd for image, 2/3rd for content -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <!-- Top third (image) -->
+            <RowDefinition Height="2*"/>
+            <!-- Bottom two-thirds (content) -->
+        </Grid.RowDefinitions>
+
+        <!-- Item Image at the top -->
+        <Image Grid.Row="0"
+               Source="{Binding ImageUrl}"
+               HorizontalOptions="FillAndExpand"
+               VerticalOptions="FillAndExpand"/>
+        <!-- Binding the image URL -->
+
+        <!-- Content below the image -->
+        <StackLayout Grid.Row="1"
+                     Padding="10"
+                     VerticalOptions="Start"
+                     Spacing="20">
+
+            <!-- Item Name -->
+            <Label Text="{Binding Name}"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <!-- Item Price -->
+            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}"
+                   FontSize="Medium"
+                   HorizontalOptions="Center"/>
+            <!-- Display price in currency format -->
+
+            <!-- Item Description -->
+            <Label Text="{Binding Description}"
+                   FontSize="Small"
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand"
+                   LineBreakMode="WordWrap"
+                   TextColor="Gray"/>
+            <!-- Display the item's availability status -->
+            <Label Text="{Binding Availability}"
+                   FontSize="Medium"
+                   TextColor="Gray"
+                   HorizontalOptions="Center"/>
+
+            <!-- Display the item's amount in stock -->
+            <Label Text=" {Binding Amount, StringFormat='Available Items Amount: {0}'}"
+                   FontSize="Small"
+                   HorizontalOptions="Center"
+                   Padding="20"/>
+
+            <Button x:Name="ReviewButton"
+                    Text="Write a Review"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Clicked="OnWriteReviewClicked"/>
+
+            <!-- Add to Cart Button -->
+            <Button x:Name="CartButton"
+                    Text="Add to Cart"
+                    BackgroundColor="Orange"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    HorizontalOptions="FillAndExpand"
+                    Command="{Binding AddToCartCommand}"
+                    VerticalOptions="EndAndExpand"
+                    IsEnabled="{Binding AddedCartItem.Amount, Converter={StaticResource ZeroToFalseConverter}}"/>
+
+
+
+
+
+        </StackLayout>
+    </Grid>
+</ShopNow:BasePage>

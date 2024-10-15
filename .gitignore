@@ -1,0 +1,21 @@
+# Ignore macOS system files
+.DS_Store
+
+# Ignore build outputs and intermediate files
+bin/
+obj/
+
+# Ignore Visual Studio and JetBrains Rider project files
+.vs/
+.vscode/
+.idea/
+
+# Ignore temporary files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore ASP.NET Core artifacts
+wwwroot/
+

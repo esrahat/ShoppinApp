@@ -1,0 +1,52 @@
+{
+"categories":[ 
+    {
+        "name": "Shoes",
+        "id" : "1",
+        "items" : [
+                {"Name": "Adidas", "Price" : "110", "Amount":"5", "Description":"Men's Running shoe, not waterproof"},
+                {"Name": "Columbia", "Price" : "300", "Amount":"5", "Description":"Columbia Men's Crestwood Mid Waterproof Hiking Boot"},
+                {"Name": "Puma", "Price" : "200", "Amount":"5", "Description":"Puma Mens Dazzler Sneake, not waterproofer"}
+     ]
+
+    }, 
+
+    {
+        "name": "Jeans",
+        "id" : "2",
+        "items" : [
+                {"Name": "Slimfit", "Price" : "30", "Amount":"5", "Description":"Stretch Cotton Poly Spandex fabric"},
+                {"Name": "Regular jeans", "Price" : "35", "Amount":"5", "Description":"denim, Pocket, Washed"},
+                {"Name": "Baggy", "Price" : "40", "Amount":"5", "Description":"Straight fit - Falls Straight from the waist to the Hem"}
+     ]
+
+    },
+
+     {
+        "name": "T-Shirts",
+        "id" : "3",
+        "items" : [{"Name": "Puma", "Price" : "40", "Amount":"5", "Description":"slimfit, short sleeve"},
+                   {"Name": "Reebok", "Price" : "60", "Amount":"5", "Description":"slimfit, short sleeve"},
+                   {"Name": "Fila", "Price" : "50", "Amount":"5", "Description":"Fila Men's Regular Fit T-Shirt"}
+                ]
+
+     },
+     
+     {
+        "name": "Kids clothes",
+        "id" : "4",
+        "items" : [{"Name": "Boys Formal Set", "Price" : "35", "Amount":"5", "Description":"1 Shirt, 1 Short, 1 Bow, 1 Suspender"},
+                   {"Name": "Layered dress", "Price" : "60", "Amount":"5", "Description":"Sleevless birthday dress"},
+                   {"Name": "Floral dress", "Price" : "110", "Amount":"5", "Description":"Long sleeves, chick, wedding dress"}
+                ]
+
+     }
+
+
+
+
+
+
+
+]
+}

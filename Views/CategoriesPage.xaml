@@ -1,0 +1,28 @@
+<ShopNow:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+                  xmlns:ShopNow="clr-namespace:ShopNow.Views"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="ShopNow.Views.CategoriesPage"
+                  Title="Categories"
+                  NavigationPage.HasBackButton="False">
+
+    <StackLayout Padding="20">
+        <Label Text="Categories"
+                FontSize="24"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"/>
+
+        <!-- Add categories here -->
+        <CollectionView ItemsSource="{Binding Categories}"
+                SelectionMode="Single"
+                SelectionChanged="OnCategorySelected">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="10">
+                        <Label Text="{Binding Name}"
+                                FontSize="20"/>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ShopNow:BasePage>

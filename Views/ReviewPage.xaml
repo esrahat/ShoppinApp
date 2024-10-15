@@ -1,0 +1,66 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ShopNow.Views.ReviewPage"
+             Title="Add Review">
+
+       <StackLayout Padding="20"
+                     Spacing="15">
+
+              <Label Text="Enter your name:"/>
+              <!-- Name Entry -->
+              <Entry Placeholder="Name"
+                     Text="{Binding Name, Mode=TwoWay}"
+                     x:Name="NameEntry"
+                     FontSize="Medium"
+                     IsEnabled="True"/>
+
+
+              <Label Text="Enter your Email:"/>
+              <!-- Email Entry -->
+              <Entry Placeholder="Enter your email"
+                     Text="{Binding Email, Mode=TwoWay}"
+                     x:Name="EmailEntry"
+                     FontSize="Medium"
+                     Keyboard="Email"
+                     IsEnabled="True"/>
+
+              <Label Text="Write your review:"/>
+              <!-- Review Text Entry -->
+              <Editor Placeholder="Write your review here..."
+                      Text="{Binding ReviewText, Mode=TwoWay}"
+                      x:Name="ReviewEntry"
+                      HeightRequest="100"
+                      IsEnabled="True"/>
+
+              <!-- Rating Section -->
+              <Label Text="Rate this product:"
+                            FontSize="Medium"
+                            HorizontalOptions="Center"/>
+              <StackLayout Orientation="Horizontal"
+                            HorizontalOptions="Center">
+                     <ImageButton x:Name="Star1Button"
+                                   Source="star_empty.png"
+                                   Clicked="OnStarClicked"/>
+                     <ImageButton x:Name="Star2Button"
+                                   Source="star_empty.png"
+                                   Clicked="OnStarClicked"/>
+                     <ImageButton x:Name="Star3Button"
+                                   Source="star_empty.png"
+                                   Clicked="OnStarClicked"/>
+                     <ImageButton x:Name="Star4Button"
+                                   Source="star_empty.png"
+                                   Clicked="OnStarClicked"/>
+                     <ImageButton x:Name="Star5Button"
+                                   Source="star_empty.png"
+                                   Clicked="OnStarClicked"/>
+              </StackLayout>
+
+              <!-- Submit Button -->
+              <Button Text="Submit Review"
+                      Command="{Binding SubmitReviewCommand}"
+                      BackgroundColor="Green"
+                      TextColor="White"/>
+
+       </StackLayout>
+
+</ContentPage>
